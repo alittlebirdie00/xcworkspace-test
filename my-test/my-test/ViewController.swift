@@ -7,12 +7,33 @@
 //
 
 import UIKit
+import AFNetworking
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+            
+            let manager = AFHTTPSessionManager()
+            manager.get(
+                "https://jsonplaceholder.typicode.com/todos/1",
+                parameters: nil,
+                success:
+                {
+                    (operation, responseObject) in
+                    print(responseObject!)
+                    
+            },
+                failure:
+                {
+                    (operation, error) in
+                    print("Error: " + error.localizedDescription)
+            })
+    
+        
     }
 
 
